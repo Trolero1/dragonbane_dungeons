@@ -1,0 +1,31 @@
+{
+  "id": "aaf592a3",
+  "nombre": "primero",
+  "fecha_creacion": "11/04/2026 19:25",
+  "rooms": [
+    {
+      "id": "f47f2854",
+      "numero": 1,
+      "nombre": "Habitación Inicial",
+      "descripcion": "",
+      "imagen": "",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": []
+    }
+  ],
+  "items_globales": [],
+  "monstruos_globales": [],
+  "pnjs_globales": [],
+  "mecanismos_globales": [],
+  "_next_room": 2,
+  "_next_item": 1,
+  "_next_monstruo": 1,
+  "_next_pnj": 1,
+  "_next_mecanismo": 1
+}

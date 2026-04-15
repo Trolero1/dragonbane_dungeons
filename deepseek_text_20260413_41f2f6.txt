@@ -1,0 +1,28 @@
+dragonbane_editor/
+├── main.py
+├── constants.py
+├── models.py
+├── persistence.py
+├── screen_editor.py
+├── screen_dungeons.py
+├── ui_utils.py
+└── data/
+    └── dungeons/
+
+
+Sugerencias de mejora claude
+Para el programa actual:
+
+Exportar un JSON "limpio" separado del de trabajo. Ahora el mismo JSON que usa el editor (con metadatos internos como _next_room, IDs de UUID, etc.) sería el que consume el juego. Convendría una función exportar_dungeon_para_juego() que genere un JSON simplificado y autocontenido, sin campos del editor.
+Validar coherencia del dungeon antes de guardar. Por ejemplo: habitaciones sin nombre, rooms sin ninguna salida (que quedarían inaccesibles), mecanismos con efecto abrir_salida apuntando a una dirección que ya no existe, etc. Un botón "Validar dungeon" con lista de advertencias sería muy útil.
+Guardar automáticamente en intervalos, no solo al salir con ESC. Si el programa se cierra inesperadamente, se pierde el trabajo.
+Permitir editar nombre del dungeon desde el editor (no solo al crearlo).
+Vista de planta para niveles Z distintos de 0. Ahora se puede cambiar el nivel Z pero visualmente no hay indicador de qué rooms del nivel actual tienen conexión arriba/abajo con otros niveles. Un icono o color diferente en esas rooms ayudaría mucho.
+Deshacer/rehacer (Ctrl+Z). La eliminación de rooms o el borrado de elementos no tiene marcha atrás más allá de no guardar.
+
+Para la integración con el juego:
+
+Añadir un campo room_inicial_id al dungeon que el juego usará para saber dónde empieza el grupo. Ahora se asume x=0, y=0, z=0 pero sería mejor que fuera explícito.
+Ampliar el modelo Salida con un campo llave_id (id de un item que abre esa salida cerrada). Esto permitiría al juego implementar puertas con llave sin lógica adicional de mecanismos.
+Añadir campo imagen a Room y usarlo. Ya existe en el modelo (room.imagen = "") pero el editor nunca permite asignarlo. Para un juego estilo Eye of the Beholder, la imagen de cada room es fundamental.
+Añadir descripción de encuentro a Monstruo y PNJ (texto que se muestra al jugador cuando entra en la room, distinto de la descripción general del ser), y textos de combate/diálogo básicos.

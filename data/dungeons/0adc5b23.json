@@ -1,0 +1,122 @@
+{
+  "id": "0adc5b23",
+  "nombre": "dfsdfgsdfh",
+  "fecha_creacion": "13/04/2026 14:54",
+  "rooms": [
+    {
+      "id": "ccc632ed",
+      "numero": 1,
+      "nombre": "Entrada al templo",
+      "descripcion": "La entrada de un antiguo templo en ruinas. Podeis entrar o dirigiros al este, al desierto",
+      "imagen": "",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "norte",
+          "room_destino_id": "744e13b5",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        },
+        {
+          "direccion": "este",
+          "room_destino_id": "7339dfd2",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    },
+    {
+      "id": "744e13b5",
+      "numero": 2,
+      "nombre": "Habitación 2",
+      "descripcion": "",
+      "imagen": "",
+      "x": 0,
+      "y": 1,
+      "z": 0,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "sur",
+          "room_destino_id": "ccc632ed",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    },
+    {
+      "id": "7339dfd2",
+      "numero": 3,
+      "nombre": "El desierto",
+      "descripcion": "un inmenso desierto de dunas de arena bajo un ardiente sol rojo",
+      "imagen": "",
+      "x": 1,
+      "y": 0,
+      "z": 0,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "oeste",
+          "room_destino_id": "ccc632ed",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        },
+        {
+          "direccion": "sur",
+          "room_destino_id": "dfb8233b",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    },
+    {
+      "id": "dfb8233b",
+      "numero": 5,
+      "nombre": "Habitación 5",
+      "descripcion": "",
+      "imagen": "",
+      "x": 1,
+      "y": -1,
+      "z": 0,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "norte",
+          "room_destino_id": "7339dfd2",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    }
+  ],
+  "items_globales": [],
+  "monstruos_globales": [],
+  "pnjs_globales": [],
+  "mecanismos_globales": [],
+  "_next_room": 6,
+  "_next_item": 1,
+  "_next_monstruo": 1,
+  "_next_pnj": 1,
+  "_next_mecanismo": 1
+}

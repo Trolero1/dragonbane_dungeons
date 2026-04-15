@@ -1,0 +1,92 @@
+{
+  "id": "adafa919",
+  "nombre": "Primero",
+  "fecha_creacion": "13/04/2026 09:49",
+  "rooms": [
+    {
+      "id": "4a543faf",
+      "numero": 1,
+      "nombre": "Habitación Inicial",
+      "descripcion": "",
+      "imagen": "",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "norte",
+          "room_destino_id": "11876362",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "cerrada",
+          "especial_destino_id": ""
+        },
+        {
+          "direccion": "este",
+          "room_destino_id": "4b81d056",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    },
+    {
+      "id": "11876362",
+      "numero": 2,
+      "nombre": "Habitación 2",
+      "descripcion": "",
+      "imagen": "",
+      "x": 0,
+      "y": 1,
+      "z": 0,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "sur",
+          "room_destino_id": "4a543faf",
+          "estado_hacia_destino": "cerrada",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    },
+    {
+      "id": "4b81d056",
+      "numero": 3,
+      "nombre": "Habitación 3",
+      "descripcion": "",
+      "imagen": "",
+      "x": 1,
+      "y": 0,
+      "z": 0,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "oeste",
+          "room_destino_id": "4a543faf",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    }
+  ],
+  "items_globales": [],
+  "monstruos_globales": [],
+  "pnjs_globales": [],
+  "mecanismos_globales": [],
+  "_next_room": 4,
+  "_next_item": 1,
+  "_next_monstruo": 1,
+  "_next_pnj": 1,
+  "_next_mecanismo": 1
+}

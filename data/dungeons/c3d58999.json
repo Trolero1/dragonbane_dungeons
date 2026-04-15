@@ -1,0 +1,123 @@
+{
+  "id": "c3d58999",
+  "nombre": "primero",
+  "fecha_creacion": "13/04/2026 15:31",
+  "numero": 1,
+  "rooms": [
+    {
+      "id": "7fa0acb2",
+      "numero": 1,
+      "nombre": "Entrada del templo",
+      "descripcion": "la entrada de un antiguo templo en ruinas. O se entra o se sigue al este, al desierto",
+      "imagen": "",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "norte",
+          "room_destino_id": "e14777c8",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        },
+        {
+          "direccion": "este",
+          "room_destino_id": "d2bd602f",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    },
+    {
+      "id": "e14777c8",
+      "numero": 2,
+      "nombre": "Patio del templo",
+      "descripcion": "El patio en ruinas del templo. Al norte se ve un acceso a unas escaleras. Al sur está la entrada al templo",
+      "imagen": "",
+      "x": 0,
+      "y": 1,
+      "z": 0,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "sur",
+          "room_destino_id": "7fa0acb2",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    },
+    {
+      "id": "d2bd602f",
+      "numero": 3,
+      "nombre": "Desierto de arena",
+      "descripcion": "Un desierto de arena de grandes dunas bajo un gigantesco sol rojo",
+      "imagen": "",
+      "x": 1,
+      "y": 0,
+      "z": 0,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "oeste",
+          "room_destino_id": "7fa0acb2",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        },
+        {
+          "direccion": "este",
+          "room_destino_id": "f76e2842",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    },
+    {
+      "id": "f76e2842",
+      "numero": 4,
+      "nombre": "El profundo desierto",
+      "descripcion": "Más y más dunas de ardiente arena bajo el sol rojo. Podéis volver hacia el oeste o seguir adentrándoos en el desierto más al este",
+      "imagen": "",
+      "x": 2,
+      "y": 0,
+      "z": 0,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "oeste",
+          "room_destino_id": "d2bd602f",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    }
+  ],
+  "items_globales": [],
+  "monstruos_globales": [],
+  "pnjs_globales": [],
+  "mecanismos_globales": [],
+  "_next_room": 5,
+  "_next_item": 1,
+  "_next_monstruo": 1,
+  "_next_pnj": 1,
+  "_next_mecanismo": 1
+}
