@@ -38,7 +38,7 @@
       "id": "e14777c8",
       "numero": 2,
       "nombre": "Patio del templo",
-      "descripcion": "El patio en ruinas del templo. Al norte se ve un acceso a unas escaleras. Al sur está la entrada al templo",
+      "descripcion": "El patio en ruinas del templo. Al sur está la entrada del templo. Al norte hay unas oscuras escaleras que bajan. Sin luz no puedes bajar",
       "imagen": "",
       "x": 0,
       "y": 1,
@@ -53,6 +53,13 @@
           "room_destino_id": "7fa0acb2",
           "estado_hacia_destino": "abierta",
           "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        },
+        {
+          "direccion": "abajo",
+          "room_destino_id": "95e165aa",
+          "estado_hacia_destino": "cerrada",
+          "estado_hacia_origen": "cerrada",
           "especial_destino_id": ""
         }
       ]
@@ -109,13 +116,126 @@
           "especial_destino_id": ""
         }
       ]
+    },
+    {
+      "id": "95e165aa",
+      "numero": 12,
+      "nombre": "Habitación 12",
+      "descripcion": "",
+      "imagen": "",
+      "x": 0,
+      "y": 1,
+      "z": -1,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "arriba",
+          "room_destino_id": "e14777c8",
+          "estado_hacia_destino": "cerrada",
+          "estado_hacia_origen": "cerrada",
+          "especial_destino_id": ""
+        },
+        {
+          "direccion": "este",
+          "room_destino_id": "4e1dd30e",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        },
+        {
+          "direccion": "oeste",
+          "room_destino_id": "0eec133a",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        },
+        {
+          "direccion": "norte",
+          "room_destino_id": "ee6f8bb0",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    },
+    {
+      "id": "4e1dd30e",
+      "numero": 13,
+      "nombre": "Habitación 13",
+      "descripcion": "",
+      "imagen": "",
+      "x": 1,
+      "y": 1,
+      "z": -1,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "oeste",
+          "room_destino_id": "95e165aa",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    },
+    {
+      "id": "0eec133a",
+      "numero": 14,
+      "nombre": "Habitación 14",
+      "descripcion": "",
+      "imagen": "",
+      "x": -1,
+      "y": 1,
+      "z": -1,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "este",
+          "room_destino_id": "95e165aa",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    },
+    {
+      "id": "ee6f8bb0",
+      "numero": 15,
+      "nombre": "Habitación 15",
+      "descripcion": "",
+      "imagen": "",
+      "x": 0,
+      "y": 2,
+      "z": -1,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "sur",
+          "room_destino_id": "95e165aa",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
     }
   ],
   "items_globales": [],
   "monstruos_globales": [],
   "pnjs_globales": [],
   "mecanismos_globales": [],
-  "_next_room": 5,
+  "_next_room": 16,
   "_next_item": 1,
   "_next_monstruo": 1,
   "_next_pnj": 1,
