@@ -1210,6 +1210,7 @@ def run_editor(screen, dungeon: Dungeon):
 
         pygame.display.flip()
         clock.tick(60)
-
+    # <--- Nueva línea de seguridad introducida el 2-5-26
+    dungeon.validar_y_reparar_ids()
     persistence.guardar_dungeon(dungeon)
     return dungeon

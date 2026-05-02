@@ -1,0 +1,86 @@
+{
+  "id": "e0fddfc4",
+  "nombre": "prueba validacion ids",
+  "fecha_creacion": "02/05/2026 08:50",
+  "numero": 2,
+  "rooms": [
+    {
+      "id": "c318c70f",
+      "numero": 1,
+      "nombre": "Habitación Inicial",
+      "descripcion": "",
+      "imagen": "",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "items": [],
+      "monstruos": [],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "norte",
+          "room_destino_id": "c25d5cdb",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    },
+    {
+      "id": "c25d5cdb",
+      "numero": 2,
+      "nombre": "Habitación 2",
+      "descripcion": "",
+      "imagen": "",
+      "x": 0,
+      "y": 1,
+      "z": 0,
+      "items": [],
+      "monstruos": [
+        {
+          "id": "2afaa88d",
+          "numero": 1,
+          "nombre": "PRUEBA1",
+          "descripcion": "GHFGH",
+          "presente": true
+        }
+      ],
+      "pnjs": [],
+      "mecanismos": [],
+      "salidas": [
+        {
+          "direccion": "sur",
+          "room_destino_id": "c318c70f",
+          "estado_hacia_destino": "abierta",
+          "estado_hacia_origen": "abierta",
+          "especial_destino_id": ""
+        }
+      ]
+    }
+  ],
+  "items_globales": [],
+  "monstruos_globales": [
+    {
+      "id": "d56730ef",
+      "numero": 1,
+      "nombre": "PRUEBA1",
+      "descripcion": "GHFGH",
+      "presente": true
+    },
+    {
+      "id": "a9687250",
+      "numero": 1,
+      "nombre": "PRUEBA1",
+      "descripcion": "GHFGH",
+      "presente": true
+    }
+  ],
+  "pnjs_globales": [],
+  "mecanismos_globales": [],
+  "_next_room": 3,
+  "_next_item": 1,
+  "_next_monstruo": 2,
+  "_next_pnj": 1,
+  "_next_mecanismo": 1
+}

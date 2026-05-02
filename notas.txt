@@ -26,3 +26,45 @@ Añadir un campo room_inicial_id al dungeon que el juego usará para saber dónd
 Ampliar el modelo Salida con un campo llave_id (id de un item que abre esa salida cerrada). Esto permitiría al juego implementar puertas con llave sin lógica adicional de mecanismos.
 Añadir campo imagen a Room y usarlo. Ya existe en el modelo (room.imagen = "") pero el editor nunca permite asignarlo. Para un juego estilo Eye of the Beholder, la imagen de cada room es fundamental.
 Añadir descripción de encuentro a Monstruo y PNJ (texto que se muestra al jugador cuando entra en la room, distinto de la descripción general del ser), y textos de combate/diálogo básicos.
+
+02/05/2026 GEMINI
+ Dragonbane Dungeons - Documentación del Proyecto1. 
+Visión GeneralDragonbane Dungeons es un editor visual de mazmorras desarrollado en Python y Pygame. Está diseñado específicamente para el juego de rol Dragonbane, permitiendo a los Directores de Juego (DMs) crear mapas estructurados en coordenadas 3D (X, Y, Z), gestionar encuentros (monstruos/PNJs), tesoros y mecanismos lógicos (palancas y puertas).
+Características Clave
+Navegación No-Euclidiana: Soporte para salidas "especiales" que permiten teletransportes.
+Persistencia Robusta: Guardado automático en JSON con IDs únicos (UUID).
+Interfaz Transaccional: Si el usuario cancela una operación a mitad (ej. crear una salida), el sistema revierte los cambios automáticamente para evitar datos huérfanos.
+Arquitectura Modular: Separación clara entre modelos de datos, interfaz y persistencia.
+2. Análisis de Archivos y Sugerencias de Mejora
+📄 models.py (El Corazón de Datos)
+Define las clases Dungeon, Room, Item, Monstruo, PNJ, Mecanismo y Salida.
+Estado actual: Uso correcto de dataclasses y métodos from_dict/to_dict para la serialización.
+Sugerencias de mejora:
+Validación de IDs: Implementar un método que asegure que no existen IDs duplicados al importar o clonar. IMPLEMENTADO CON ÉXITO EL 2/5/26
+Atributos de Combate: Ampliar Monstruo con campos como PV, Armadura y Ataques para que el editor sirva también como gestor de combate.
+📄 screen_editor.py (Lógica Visual)
+Es el archivo más complejo. Gestiona el mapa 2D, el scroll, el zoom y los Wizards de creación.
+Estado actual: Excelente manejo de eventos y capas Z.
+ Muy buena lógica de "salidas inversas" automáticas.
+Sugerencias de mejora:
+Sistema de Zoom: Añadir capacidad de escalar el mapa para ver mazmorras grandes.
+Drag & Drop: Permitir mover las habitaciones arrastrándolas con el ratón para cambiar sus coordenadas (x, y).
+Preview de Imágenes: En Room hay un campo imagen; el editor debería mostrar una miniatura de la habitación si el archivo existe.
+📄 persistence.py (Gestión de Archivos)
+Controla la lectura/escritura en la carpeta /data.
+Estado actual: Sistema de meta.json muy eficiente para el conteo de mazmorras.
+Sugerencias de mejora:
+Copias de Seguridad (Backups): Antes de sobreescribir un .json, renombrar el anterior a .bak.
+Exportación: Crear una función para exportar la mazmorra a un archivo PDF legible o a una imagen de alta resolución.
+📄 screen_dungeons.py (El Menú Principal)
+Gestiona la biblioteca de mazmorras del usuario.
+Estado actual: Interfaz limpia y segura con diálogos de confirmación.
+Sugerencias de mejora:
+Buscador: Si la lista de mazmorras crece, añadir un filtro por nombre.
+Estadísticas: Mostrar en la lista el nivel de dificultad (basado en el número de monstruos).
+📄 constants.py y main.py
+Establecen el entorno y la paleta de colores "Dragonbane".Sugerencia: Mover la lógica de pygame.display.set_mode para que detecte automáticamente la resolución del monitor al inicio.
+3. Hoja de Ruta para Futuras Ampliaciones (Roadmap)
+Fase A: Mecanismos Inteligentes (Lógica de Juego)Actualmente, los mecanismos son descriptivos. Se sugiere programar la activación real:Si un Mecanismo tiene el efecto abrir_salida, al activarlo en un "Modo Prueba", el estado de la Salida correspondiente debe cambiar de cerrada a abierta en tiempo real.
+Fase B: Modo "Fog of War" (Niebla de Guerra)Crear un modo de visualización para jugadores:El mapa empieza en negro.A medida que el DM marca una habitación como "visitada", esta se revela en el visor.Fase C: Generación ProceduralImplementar un algoritmo (ej. Caminante Aleatorio) que genere una estructura de mazmorra base con 10-15 habitaciones conectadas automáticamente para que el usuario solo tenga que rellenar los detalles.
+4. Guía para la IA (Contexto de Implementación)Nota para la IA: El proyecto utiliza Pygame 2.x y Python 3.10+. Los objetos se manejan mediante diccionarios en la persistencia y se reconstruyen a objetos de clase al cargar. La coordinación entre habitaciones es crítica; cualquier cambio en una Salida debe verificar la integridad de su room_destino_id y su salida inversa.

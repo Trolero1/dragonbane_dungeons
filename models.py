@@ -159,9 +159,11 @@ class Room:
     def from_dict(d):
         d = d.copy()
         d["items"] = [Item.from_dict(i) for i in d.get("items", [])]
-        d["monstruos"] = [Monstruo.from_dict(m) for m in d.get("monstruos", [])]
+        d["monstruos"] = [Monstruo.from_dict(m)
+                          for m in d.get("monstruos", [])]
         d["pnjs"] = [PNJ.from_dict(p) for p in d.get("pnjs", [])]
-        d["mecanismos"] = [Mecanismo.from_dict(m) for m in d.get("mecanismos", [])]
+        d["mecanismos"] = [Mecanismo.from_dict(
+            m) for m in d.get("mecanismos", [])]
         d["salidas"] = [Salida.from_dict(s) for s in d.get("salidas", [])]
         return Room(**d)
 
@@ -189,11 +191,30 @@ class Dungeon:
     _next_pnj: int = 1
     _next_mecanismo: int = 1
 
-    def next_room_num(self): n = self._next_room; self._next_room += 1; return n
-    def next_item_num(self): n = self._next_item; self._next_item += 1; return n
-    def next_monstruo_num(self): n = self._next_monstruo; self._next_monstruo += 1; return n
-    def next_pnj_num(self): n = self._next_pnj; self._next_pnj += 1; return n
-    def next_mecanismo_num(self): n = self._next_mecanismo; self._next_mecanismo += 1; return n
+    def next_room_num(self):
+        n = self._next_room
+        self._next_room += 1
+        return n
+
+    def next_item_num(self):
+        n = self._next_item
+        self._next_item += 1
+        return n
+
+    def next_monstruo_num(self):
+        n = self._next_monstruo
+        self._next_monstruo += 1
+        return n
+
+    def next_pnj_num(self):
+        n = self._next_pnj
+        self._next_pnj += 1
+        return n
+
+    def next_mecanismo_num(self):
+        n = self._next_mecanismo
+        self._next_mecanismo += 1
+        return n
 
     def room_en(self, x, y, z) -> Optional[Room]:
         for r in self.rooms:
@@ -225,8 +246,48 @@ class Dungeon:
     def from_dict(d):
         d = d.copy()
         d["rooms"] = [Room.from_dict(r) for r in d.get("rooms", [])]
-        d["items_globales"] = [Item.from_dict(i) for i in d.get("items_globales", [])]
-        d["monstruos_globales"] = [Monstruo.from_dict(m) for m in d.get("monstruos_globales", [])]
-        d["pnjs_globales"] = [PNJ.from_dict(p) for p in d.get("pnjs_globales", [])]
-        d["mecanismos_globales"] = [Mecanismo.from_dict(m) for m in d.get("mecanismos_globales", [])]
+        d["items_globales"] = [Item.from_dict(
+            i) for i in d.get("items_globales", [])]
+        d["monstruos_globales"] = [Monstruo.from_dict(
+            m) for m in d.get("monstruos_globales", [])]
+        d["pnjs_globales"] = [PNJ.from_dict(p)
+                              for p in d.get("pnjs_globales", [])]
+        d["mecanismos_globales"] = [Mecanismo.from_dict(
+            m) for m in d.get("mecanismos_globales", [])]
         return Dungeon(**d)
+
+    # Dentro de la clase Dungeon en models.py
+
+    def validar_y_reparar_ids(self):
+        """
+        Recorre todo el dungeon y regenera cualquier ID que esté duplicado.
+        Útil después de clonar habitaciones o importar datos.
+        """
+        ids_vistos = set()
+
+        def obtener_id_unico(id_actual):
+            # Si el ID ya existe, generamos uno nuevo
+            if id_actual in ids_vistos or not id_actual:
+                nuevo_id = str(uuid.uuid4())[:8]
+                while nuevo_id in ids_vistos:
+                    nuevo_id = str(uuid.uuid4())[:8]
+                return nuevo_id
+            return id_actual
+
+        # 1. Revisar IDs de las habitaciones
+        for r in self.rooms:
+            r.id = obtener_id_unico(r.id)
+            ids_vistos.add(r.id)
+
+            # 2. Revisar elementos dentro de cada habitación
+            for lista in [r.items, r.monstruos, r.pnjs, r.mecanismos]:
+                for elem in lista:
+                    elem.id = obtener_id_unico(elem.id)
+                    ids_vistos.add(elem.id)
+
+        # 3. Revisar listas globales del dungeon
+        for lista_global in [self.items_globales, self.monstruos_globales,
+                             self.pnjs_globales, self.mecanismos_globales]:
+            for elem in lista_global:
+                elem.id = obtener_id_unico(elem.id)
+                ids_vistos.add(elem.id)
