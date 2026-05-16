@@ -1,12 +1,13 @@
 # screen_dungeons.py - Pantalla principal del Editor de Dungeons
 #
-# Botones: CREAR, MODIFICAR, ELIMINAR, SALIR
+# Botones: CREAR, MODIFICAR, ELIMINAR, ELEMENTOS, SALIR
 
 import pygame
 from constants import *
 from ui_utils import get_font, draw_text, Button, MessageDialog, ConfirmDialog, ScrollList, TextInput
 import persistence
 import screen_editor
+import screen_elementos
 from models import Dungeon
 from datetime import datetime
 
@@ -18,9 +19,9 @@ class ScreenDungeonsManager:
         self.app = app
         W = app.screen.get_width()
         
-        # 4 botones centrados
+        # 5 botones centrados
         btn_w, btn_h, gap = 200, 56, 24
-        total_w = 4 * btn_w + 3 * gap
+        total_w = 5 * btn_w + 4 * gap
         start_x = W // 2 - total_w // 2
         
         self.btn_crear = Button((start_x, 390, btn_w, btn_h),
@@ -34,11 +35,15 @@ class ScreenDungeonsManager:
                                    "🗑  ELIMINAR", font_size=16, bold=True,
                                    color=C_ERROR)
         
-        self.btn_salir = Button((start_x + 3 * (btn_w + gap), 390, btn_w, btn_h),
+        self.btn_elementos = Button((start_x + 3 * (btn_w + gap), 390, btn_w, btn_h),
+                                    "⚙  ELEMENTOS", font_size=16, bold=True,
+                                    color=(60, 100, 60))
+        
+        self.btn_salir = Button((start_x + 4 * (btn_w + gap), 390, btn_w, btn_h),
                                 "🚪  SALIR", font_size=16, bold=True,
                                 color=(80, 40, 40))
         
-        self.buttons = [self.btn_crear, self.btn_modificar, self.btn_eliminar, self.btn_salir]
+        self.buttons = [self.btn_crear, self.btn_modificar, self.btn_eliminar, self.btn_elementos, self.btn_salir]
     
     def handle_event(self, event):
         # Botón SALIR
@@ -57,6 +62,10 @@ class ScreenDungeonsManager:
         # Botón ELIMINAR
         elif self.btn_eliminar.handle_event(event):
             self._eliminar_dungeon()
+        
+        # Botón ELEMENTOS
+        elif self.btn_elementos.handle_event(event):
+            self._gestionar_elementos()
     
     def _crear_dungeon(self):
         """Crea un nuevo dungeon."""
@@ -102,6 +111,10 @@ class ScreenDungeonsManager:
                          f"¿Eliminar dungeon '{d['nombre']}'? Esta acción no se puede deshacer.").run():
             persistence.eliminar_dungeon(d["id"])
             MessageDialog(self.app.screen, f"Dungeon '{d['nombre']}' eliminado.").run()
+    
+    def _gestionar_elementos(self):
+        """Abre la pantalla de gestión de elementos globales."""
+        self.app.current_screen = screen_elementos.ScreenElementos(self.app)
     
     def _pick_dungeon(self, dungeons, title):
         """Muestra lista de dungeons y devuelve índice."""

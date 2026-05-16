@@ -36,16 +36,16 @@
       "x": 0,
       "y": 1,
       "z": 0,
-      "items": [],
-      "monstruos": [
+      "items": [
         {
-          "id": "2afaa88d",
+          "id": "79f867b3",
           "numero": 1,
-          "nombre": "PRUEBA1",
-          "descripcion": "GHFGH",
-          "presente": true
+          "nombre": "Antorcha",
+          "descripcion": "Una antorcha",
+          "estado": "en_room"
         }
       ],
+      "monstruos": [],
       "pnjs": [],
       "mecanismos": [],
       "salidas": [
@@ -59,7 +59,15 @@
       ]
     }
   ],
-  "items_globales": [],
+  "items_globales": [
+    {
+      "id": "072724ff",
+      "numero": 1,
+      "nombre": "Antorcha",
+      "descripcion": "Una antorcha",
+      "estado": "en_room"
+    }
+  ],
   "monstruos_globales": [
     {
       "id": "d56730ef",
@@ -79,7 +87,7 @@
   "pnjs_globales": [],
   "mecanismos_globales": [],
   "_next_room": 3,
-  "_next_item": 1,
+  "_next_item": 2,
   "_next_monstruo": 2,
   "_next_pnj": 1,
   "_next_mecanismo": 1
