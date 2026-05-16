@@ -8,6 +8,7 @@ Este es un proyecto de Python para gestionar mazmorras para un juego de rol,   h
 
 ## 🛠️ Tecnologías utilizadas
 - **Python 3.14**
+- **pygame-ce**
 - **Git & GitHub** para el control de versiones.
 
 ## 📁 Estructura del proyecto
